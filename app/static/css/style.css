@@ -1,0 +1,100 @@
+.form-message {
+    margin-bottom: 10em;
+}
+
+input {
+    width: 100%;
+  }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1px;
+    background-color: rgb(167, 164, 164);
+    color: white;
+}
+
+a.fa {
+    padding: 0.1em 0.1em 0.1em 0.1em;
+    margin: 0.1em 0.1em 0.1em 0.1em;
+    background-color: white;
+    border-radius: 0.1em;
+}
+  
+.fa:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+#mainscreen {
+    width: 100%;
+    margin-bottom: 10em;
+}
+
+#chat {
+    width: 100%;
+}
+
+#map {
+    height: 15vh;
+}
+
+.loader {
+  border: 1em solid #f3f3f3; /* Light grey */
+  border-top: 1em solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#loading {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;  
+}
+
+.chat_left {
+    background-color: rgb(235, 235, 235);
+    color: gray;
+    margin : 0.5em 10% 0.2em 0.5em;
+    padding: 1em 0.2em 0.2em 1em;
+    border-radius: 0.6em;
+}
+
+.chat_right {
+    background-color: rgb(41, 44, 224);
+    color: white;
+    margin : 0.5em 0.5em 0.2em 10%;
+    padding: 1em 0.2em 0.2em 1em;
+    border-radius: 0.6em;
+}
+
+.header {
+    background-color: black;
+    color: azure;
+    font-size: large;
+    text-decoration: none;
+    padding: 0.5em 0.5em 0.5em 1.5em;
+}
+
+.header_logo:hover, .header_logo {
+    margin : 0.5em 0.5em 0.5em 0.5em;
+    font-size: large;
+    text-decoration: none;
+    color: azure;
+}
+
+img  {
+    width: 70px;
+    height: 70px;
+}

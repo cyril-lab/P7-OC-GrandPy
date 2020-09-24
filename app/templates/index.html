@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsive meta tag  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>GrandPy Bot</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <nav >
+                <a class="header_logo" href="#">
+                        <img src="{{ url_for('static', filename= 'img/logo.png') }}" alt="logo">
+                        Papy-robot vous répond !
+                </a>
+            </nav>
+        </div>
+    </header>
+    <div id="mainscreen">
+        <div id="chat">
+        <div class="chat_left"><p>Bienvenue sur l'application que puis-je pour toi ?</p></div>
+        </div>
+        <!--the loader-->
+        <div id="loading"><div class="loader"></div></div>
+        <div id="map"></div>
+    </diV>
+    <footer >
+        <div class="footer">
+            <form id="form-question" >
+                <p>
+                <input id="formtexte" type="text"  name="formtexte" />
+                <input  type="submit" id="submit" value="Envoyer" />
+                </p>
+            </form>
+            <!-- Add font awesome icons --><p>
+            <a href="https://www.linkedin.com/in/cyril-vernhes-a57439135" class="fa fa-linkedin fa-3x"></a>
+            <a href="https://github.com/cyril-lab/P7-OC-GrandPy" class="fa fa-github-square fa-3x"></a>
+            Cyril VERNHES</p>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JavaScript file -->
+    <script src="{{ url_for('static', filename= 'js/form.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- Google map script -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key={{key_api_google}}"
+      defer
+    ></script>
+</body>
+</html>
