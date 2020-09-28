@@ -24,9 +24,11 @@ $(document).ready(function(){
                 //adding the answer to the screen
                 var answer_papy = JSON.parse(data);
                 //answer api google map 
-                var $answer_address = $("<div class='chat_left'><p>"+answer_papy.address+"</p></div>");
+                var $answer_address = $("<div class='chat_left'><p>Bien sûr mon poussin ! La voici : "+answer_papy.address+"</p></div>");
                 //answer wikipedia
-                var $answer_wiki = $("<div class='chat_left'><p>"+answer_papy.wiki_answer+"</p></div>");
+                var $answer_wiki = $("<div class='chat_left'><p>Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ? "+
+                    answer_papy.wiki_answer+"</p><a href='https://fr.wikipedia.org/wiki/"+
+                    answer_papy.article_title+"'>Lien Wikipedia</a></div>");
                 //answer latitude
                 var latitude = answer_papy.latitude
                 //answer longitude
@@ -37,7 +39,7 @@ $(document).ready(function(){
                     $('#chat').append($answer_wiki);
                     //to display the last comment
                     $(document).scrollTop($(document).height());
-                  }, 4000);
+                  }, 2000);
                 //answer wiki display
                 //$('#chat').append($answer_wiki);
                 //location
