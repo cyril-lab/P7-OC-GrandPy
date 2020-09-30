@@ -20,7 +20,8 @@ def index():
 @app.route('/getAnswer', methods=['POST'])
 def signUpUser():
     formtext = request.form['formtexte']
-    
+    response = Application(formtext, key)
+    response_dic = response.main()
     return json.dumps({
         'status': 'OK', 'address': response_dic['address'],
         'latitude': response_dic['latitude'],
