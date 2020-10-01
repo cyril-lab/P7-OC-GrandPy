@@ -1,2 +1,2 @@
-web: gunicorn pybot_app:app
+web: gunicorn gpapp:app
 init: FLASK_APP=run.py
