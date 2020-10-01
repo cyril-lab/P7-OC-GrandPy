@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask import request, json, jsonify
+from flask import request, json
 
 from gpapp.application import Application
 
