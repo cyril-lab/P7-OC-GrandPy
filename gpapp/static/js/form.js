@@ -14,7 +14,7 @@ $(document).ready(function(){
                 //I get the question
                 var question = $('#formtexte').val();
                 //question display
-                var $question = $("<div class='chat_right'><p>"+question+"</p></div>");
+                var $question = $("<div class='chat_right'><p>"+JSON.stringify(question)+"</p></div>");
                 //deletion of the form
                 $('#form-question').get(0).reset();
                 //adding the question to the screen
@@ -24,10 +24,10 @@ $(document).ready(function(){
                 //adding the answer to the screen
                 var answer_papy = JSON.parse(data);
                 //answer api google map 
-                var $answer_address = $("<div class='chat_left'><p>Bien sûr mon poussin ! La voici : "+answer_papy.address+"</p></div>");
+                var $answer_address = $("<div class='chat_left'><p>"+answer_papy.address+"</p></div>");
                 //answer wikipedia
-                var $answer_wiki = $("<div class='chat_left'><p>Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ? "+
-                    answer_papy.wiki_answer+"</p><a href='https://fr.wikipedia.org/wiki/"+
+                var $answer_wiki = $("<div class='chat_left'><p>"+
+                    answer_papy.history+"</p><a href='https://fr.wikipedia.org/wiki/"+
                     answer_papy.article_title+"'>Lien Wikipedia</a></div>");
                 //answer latitude
                 var latitude = answer_papy.latitude
@@ -40,8 +40,6 @@ $(document).ready(function(){
                     //to display the last comment
                     $(document).scrollTop($(document).height());
                   }, 2000);
-                //answer wiki display
-                //$('#chat').append($answer_wiki);
                 //location
                 var location = {lat: latitude, lng: longitude};
                 // The map

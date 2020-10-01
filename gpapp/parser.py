@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from nltk.corpus import stopwords
+from gpapp.stopwords import StopWords
 import nltk
 
 
@@ -9,17 +9,18 @@ class Parser:
     that matches a searched location.
     """
     def __init__(self, sentence):
-        self.sentence = sentence
-        nltk.download('stopwords')
-        nltk.download('punkt')
+        self.sentence = sentence.lower()
 
     def get_location(self):
         """method to retrieve the location"""
         tokenizer = nltk.RegexpTokenizer(r'\w+')
         words = tokenizer.tokenize(self.sentence)
-        stop_words = set(stopwords.words('french'))
-        new_sentence = []
+        stop_words = StopWords()
+        stop_words = set(stop_words.get_stop_words())
+        new_sentence = " "
         for word in words:
             if word not in stop_words:
-                new_sentence.append(word)
-        return new_sentence[-1]
+                new_sentence += word
+                if word != words[-1]:
+                    new_sentence += " "
+        return new_sentence

@@ -2,6 +2,7 @@
 from gpapp.parser import Parser
 from gpapp.googleapi import GoogleApi
 from gpapp.wikiapi import WikiApi
+import random
 
 
 class Application:
@@ -11,25 +12,34 @@ class Application:
     """
     def __init__(self, question, google_key):
         self.question = question
-        self.response = {}
         self.google_key = google_key
+        self.response_GrandPy = ""
 
     def main(self):
         """the main method of the class"""
         question = Parser(self.question)
         location = question.get_location()
-        cordinate = GoogleApi(location, self.google_key)
-        cordinate.parse()
-        latitude = cordinate.coordinate_latitude
-        self.response['latitude'] = cordinate.coordinate_latitude
-        longitude = cordinate.coordinate_longitude
-        self.response['longitude'] = longitude
-        address = cordinate.address
-        self.response['address'] = address
-        article = WikiApi(latitude, longitude)
-        article.parse()
-        wiki_answer = article.article_abstract
-        self.response['wiki_answer'] = wiki_answer
-        article_title = article.article_title
-        self.response['article_title'] = article_title
-        return self.response
+        google = GoogleApi(location, self.google_key)
+        google_response = google.parse()
+        wiki = WikiApi(google_response['latitude'],
+                       google_response['longitude'])
+        wiki_response = wiki.parse()
+        self.response_GrandPy = {
+            'latitude': google_response['latitude'],
+            'longitude': google_response['longitude'],
+            'address': google_response['address'],
+            'history': self._get_papy_sentence() + wiki_response['history'],
+            'article_title': wiki_response['article_title']
+            }
+        return self.response_GrandPy
+
+    def _get_papy_sentence(self):
+        """this method returns a random sentence"""
+        sentences = [
+            "Ah le bon vieux temps, ça me rappelle une histoire ! ",
+            "J'ai une histoire à te dire ! ",
+            "J'ai retrouvé mes lunettes, une histoire pour la route ! ",
+            "Les jeunes ne savent plus s'amuser, laisse-moi te raconter ! ",
+        ]
+        chosen_sentence = random.choice(sentences)
+        return chosen_sentence

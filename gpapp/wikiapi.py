@@ -11,10 +11,8 @@ class WikiApi:
     def __init__(self, latitude, longitude):
         self.latitude = latitude
         self.longitude = longitude
-        self.article_title = ""
-        self.article_abstract = ""
 
-    def send_request(self):
+    def _send_request(self):
         """method to send request"""
         url = "https://fr.wikipedia.org/w/api.php"
         setting = {
@@ -31,18 +29,24 @@ class WikiApi:
         }
         request = requests.get(url=url, params=setting)
         request_wikipedia = request.json()
-        return request_wikipedia
+        if request.status_code == 200 and 'query' in request_wikipedia:
+            return request_wikipedia
 
     def parse(self):
         """method to get title and abstract"""
-        request_dic = self.send_request()
-        self.article_title = request_dic['query']['pages'][0]['title']
-        self.article_abstract = request_dic['query']['pages'][0]['extract']
-
-    def get_article_title(self):
-        """method to get article title"""
-        return self.article_title
-
-    def get_article_abstract(self):
-        """method to get article abstract"""
-        return self.article_abstract
+        info_wikipedia = self._send_request()
+        if info_wikipedia is not None:
+            article_title = \
+                info_wikipedia['query']['pages'][0]['title']
+            article_abstract = \
+                info_wikipedia['query']['pages'][0]['extract']
+            return {
+                'article_title': article_title,
+                'history': article_abstract
+                }
+        else:
+            return {
+                'article_title': "",
+                'history': "Je n'arrive pas à "
+                "trouver des informations sur Wikipedia"
+                }

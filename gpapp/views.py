@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask import request, json
+from flask import request, json, jsonify
 
 from gpapp.application import Application
 
@@ -20,16 +20,15 @@ def index():
 @app.route('/getAnswer', methods=['POST'])
 def signUpUser():
     formtext = request.form['formtexte']
-    response = Application(formtext, key)
-    response_dic = response.main()
+    initialization = Application(formtext, key)
+    response = initialization.main()
     return json.dumps({
-        'status': 'OK', 'address': response_dic['address'],
-        'latitude': response_dic['latitude'],
-        'wiki_answer': response_dic['wiki_answer'],
-        'longitude': response_dic['longitude'],
-        'article_title': response_dic['article_title']
+        'status': 'OK', 'address': response['address'],
+        'latitude': response['latitude'],
+        'history': response['history'],
+        'longitude': response['longitude'],
+        'article_title': response['article_title']
         })
-
 
 if __name__ == "__main__":
     app.run()
