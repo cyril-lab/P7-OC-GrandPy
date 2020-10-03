@@ -28,7 +28,7 @@ $(document).ready(function(){
                 //answer wikipedia
                 var $answer_wiki = $("<div class='chat_left'><p>"+
                     answer_papy.history+"</p><a href='https://fr.wikipedia.org/wiki/"+
-                    answer_papy.article_title+"'>Lien Wikipedia</a></div>");
+                    answer_papy.article_title+"'>Wikipedia</a></div>");
                 //answer latitude
                 var latitude = answer_papy.latitude
                 //answer longitude

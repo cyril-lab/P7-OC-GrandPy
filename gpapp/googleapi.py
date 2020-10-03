@@ -38,11 +38,14 @@ class GoogleApi:
             return {
                 'address': address,
                 'latitude': latitude,
-                'longitude': longitude
+                'longitude': longitude,
+                'status': "OK"
             }
         else:
             return {
-                'address': "Je n'ai pas compris, peux-tu répéter ?",
-                'latitude': 44.4377,
-                'longitude': 2.51295
+                'address': "Je n'ai pas bien compris, "
+                           "peux-tu reformuler ta question. ",
+                'latitude': 0,
+                'longitude': 0,
+                'status': "NO_RESULT"
             }

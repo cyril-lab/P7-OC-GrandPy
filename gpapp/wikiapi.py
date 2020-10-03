@@ -42,11 +42,13 @@ class WikiApi:
                 info_wikipedia['query']['pages'][0]['extract']
             return {
                 'article_title': article_title,
-                'history': article_abstract
+                'history': article_abstract,
+                'status': "OK"
                 }
         else:
             return {
                 'article_title': "",
                 'history': "Je n'arrive pas à "
-                "trouver des informations sur Wikipedia"
+                "trouver des informations sur Wikipedia",
+                'status': "NO_RESULT"
                 }
