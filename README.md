@@ -26,7 +26,8 @@ For more details you can consult the file : requirements.txt
 a Wikipedia article or a random story if it does not find 
 one and a Google Map.
 
-####Projet folder  :
+#### Projet folder  :
+
 /gpapp : contains the classes of the program.
 
 /gpapp/static : contains static files : css, javascript, pictures.
